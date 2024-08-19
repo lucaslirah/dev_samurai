@@ -1,6 +1,7 @@
 <html>
     <body>        
-    <script>
+    <!-- 
+        <script>
         //exercícios
 
         //1. O usuário mora em Cuiabá / MT, no bairro Jardim cuiabá, na Av do CPA, nº 1293.
@@ -103,6 +104,62 @@
             }
             
             mostrarHabilidades(usuarios);
+        </script> 
+    -->
+
+    <!-- <script>
+        let num1 = window.prompt("Insira um número que não seja zero.");
+        let num2 = window.prompt("Insira outro número que não seja zero.");
+
+        try {
+            let resultado = dividir(Number(num1), Number(num2));
+            console.log(resultado);
+        } catch (erro) {
+            console.log("Ocorreu um erro:", erro.message);
+        }
+
+        function dividir(a, b) {
+            if (b === 0) {
+                throw new Error("Divisão por zero não é permitida");
+            }
+            return a / b;
+        }
+    </script> -->
+
+    <script>
+        // 1. Faça um programa que peça uma nota, entre zero e dez. Mostre uma mensagem caso o valor seja inválido e continue pedindo até que o usuário informe um valor válido. 
+
+        // let notas = [];
+        // let contador = 0;
+
+        // while(contador < 4) {
+        //     let inputNota = window.prompt("Informe a " + (contador + 1) + "ª nota (entre 0 e 10): ");
+
+        //     if(isNaN(inputNota) || inputNota < 0 || inputNota > 10) {
+        //         alert("Nota inválida! Informe um número entre 0 e 10.");
+        //     } else {
+        //         notas.push(Number(inputNota));
+        //         contador++;
+        //     }
+        // }
+
+        // let media = notas.reduce((soma, numero) => soma + numero, 0) / notas.length;
+
+        // alert("Média das notas: " + media);
+
+        //2. Faça um programa que leia um nome de usuário e a sua senha e não aceite a senha igual ao nome do usuário, mostrando uma mensagem de erro e voltando a pedir as informações.
+
+        // let nome = window.prompt("Informe seu nome de usuário:");
+        // let senha = window.prompt("Informe sua senha:");
+        
+        // while(nome === senha) {
+        //     alert("Senha igual ao nome de usuário! Informe outra senha.");
+        //     senha = window.prompt("Informe sua senha:");
+        // }
+        
+        // alert("Cadastro efetuado com sucesso!");
+
+        
     </script>
     </body>
 
