@@ -85,3 +85,12 @@ let getUppercasePropertyValues = (objects, propertyName) =>
 let peopleWithUpperCaseNames = getUppercasePropertyValues(people, "name");
 console.log(peopleWithUpperCaseNames); // Output: [ 'ALICE', 'BOB', 'CHARLIE', 'DAVID' ]
 */
+
+// calcular média de quatro número utilizando o método reduce
+
+let numbers = [1, 2, 3, 4];
+
+let average = numbers.reduce((accumulator, currentValue, index) => (accumulator + currentValue) / (index + 1), 0);
+// let average = numbers.reduce((accumulator, currentValue) => (accumulator + currentValue)) / numbers.length;
+
+console.log(average); // Output: 2.5
