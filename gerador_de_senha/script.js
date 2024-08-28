@@ -27,14 +27,13 @@ let passwordLength = 16;
       });
     }
 
-    const passwordLengthElement = document.querySelector('#password-length');
-    passwordLengthElement.addEventListener('input', (e) => {
-      passwordLength = e.target.value;
-
-      generatePasswords();
-    });
-    
-    const copyPasswordButton = document.querySelector('#copy-password');
-    copyPasswordButton.addEventListener('click', copyPassword);
+  document.querySelector('#password-length').addEventListener('input', (e) => {
+    passwordLength = e.target.value;
 
     generatePasswords();
+  });
+    
+  document.querySelector('#copy-password-1').addEventListener('click', copyPassword);
+  document.querySelector('#copy-password-2').addEventListener('click', copyPassword);
+
+  generatePasswords();

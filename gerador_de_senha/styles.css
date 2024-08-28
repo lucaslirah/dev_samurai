@@ -45,6 +45,8 @@ main{
 }
 .password{
   display: flex;
+  align-items: center;
+  padding: 1rem 1.5rem;
 }
 .password text{
   flex: 1;
@@ -57,9 +59,17 @@ main{
   cursor: default;
   height: 5.2rem;
   width: 100%;
-  transition: all 0.2s;
+  transition: all .2s;
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+}
+
+.password .actions button{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  opacity: .7;
+  transition: opacity .2s;
 }
