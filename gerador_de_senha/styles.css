@@ -73,3 +73,28 @@ main{
   opacity: .7;
   transition: opacity .2s;
 }
+
+.security-indicator{
+  height: 1rem;
+  background-color: #ddd;
+  border-radius: 0 0 .8rem .8rem;
+}
+.security-indicator .bar{
+  height: 1rem;
+  border-radius: 0 .8rem .8rem .8rem;
+
+  transition: all .2s;
+}
+
+.security-indicator .bar-completed{
+  border-top-right-radius: 0;
+}
+.security-indicator .bar.critical{
+  background-color: #eb5757;  
+}
+.security-indicator .bar.warning{
+  background-color: #f2c94c;
+}
+.security-indicator .bar.safe{
+  background-color: #27ae60;
+}
