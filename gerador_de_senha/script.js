@@ -1,4 +1,4 @@
-let passwordLength = 16;
+let passwordLength = 8;
 
 const upperCaseCheck = document.querySelector("#uppercase-check");
 const numberCheck = document.querySelector("#number-check");
@@ -38,11 +38,16 @@ const generatePasswords = ()=> {
 }
 
 const calculateStrength = () => {
-  const percentage = Math.round((passwordLength / 64) * 100);
+  // T*15 + M*20 + N*25 + S*40 = 100
+  const percentage = Math.round(
+    (passwordLength / 30) * 15 +
+    (upperCaseCheck.checked ? 20 : 0) +
+    (numberCheck.checked ? 25 : 0) +
+    (symbolCheck.checked ? 40 : 0)
+  );
 
   securityIndicatorBar.style.width = `${percentage}%`;
 }
-
 
 const copyPassword = () => {
   const passwordElement = document.querySelector('#password');
