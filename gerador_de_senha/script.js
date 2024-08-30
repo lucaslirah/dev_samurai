@@ -6,6 +6,8 @@ const symbolCheck = document.querySelector("#symbol-check");
 
 const passwordLengthText = document.querySelector('#password-length-text');
 
+const securityIndicatorBar = document.querySelector('#security-indicator-bar');
+
 const generatePasswords = ()=> {
   let chars = "abcdefghjklmnpqrstuvwxyz";
   let upperCaseChars = "ABCDEFGHJKLMNPQRSTUVWXYZ";
@@ -32,7 +34,15 @@ const generatePasswords = ()=> {
   }
 
   document.querySelector('#password').value = password;
+  calculateStrength();
 }
+
+const calculateStrength = () => {
+  const percentage = Math.round((passwordLength / 64) * 100);
+
+  securityIndicatorBar.style.width = `${percentage}%`;
+}
+
 
 const copyPassword = () => {
   const passwordElement = document.querySelector('#password');
