@@ -46,6 +46,20 @@ const calculateStrength = () => {
     (symbolCheck.checked ? 40 : 0)
   );
 
+  if(percentage > 50){
+    securityIndicatorBar.classList.remove('critical');
+    securityIndicatorBar.classList.remove('warning');
+    securityIndicatorBar.classList.add('safe');
+  }else if(percentage > 35){
+    securityIndicatorBar.classList.remove('critical');
+    securityIndicatorBar.classList.add('warning');
+    securityIndicatorBar.classList.remove('safe');
+  }else{
+    securityIndicatorBar.classList.add('critical');
+    securityIndicatorBar.classList.remove('warning');
+    securityIndicatorBar.classList.remove('safe');
+  }
+
   securityIndicatorBar.style.width = `${percentage}%`;
 }
 
