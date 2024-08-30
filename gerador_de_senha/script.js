@@ -1,39 +1,62 @@
 let passwordLength = 16;
 
-    const generatePasswords = ()=> {
-      let chars = "abcdefghjklmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ1234567890?!@#&*+-$%";
+let upperCaseCheck = document.querySelector("#uppercase-check");
+let numberCheck = document.querySelector("#number-check");
+let symbolCheck = document.querySelector("#symbol-check");
+
+const generatePasswords = ()=> {
+  let chars = "abcdefghjklmnpqrstuvwxyz";
+  let upperCaseChars = "ABCDEFGHJKLMNPQRSTUVWXYZ";
+  let symbolChars = "?!@#&*+-$%";
+  let numberChars = "1234567890";
+
+  if(upperCaseCheck.checked){
+    chars += upperCaseChars;
+  }
   
-      let password = '';
-
-      for(let i=0; i<passwordLength; i++) {
-        let randomNumber = Math.floor(Math.random() * chars.length);
-        password += chars.substring(randomNumber, randomNumber + 1);
-      }
-
-      document.querySelector('#password').value = password;
-    }
+  if(numberCheck.checked){
+    chars += numberChars;
+  }
   
-    const copyPassword = () => {
-      const passwordElement = document.querySelector('#password');
-      // passwordElement.select();
-      // document.execCommand('copy');
-      // alert('Senha copiada com sucesso!');
+  if(symbolCheck.checked){
+    chars += symbolChars;
+  }
 
-      // usando navigator.clipboard
-      navigator.clipboard.writeText(passwordElement.value).then(() => {
-        alert('Senha copiada com sucesso!');
-      }, (error) => {
-        console.error('Error copying text: ', error);
-      });
-    }
+  let password = '';
 
-  document.querySelector('#password-length').addEventListener('input', (e) => {
-    passwordLength = e.target.value;
+  for(let i=0; i<passwordLength; i++) {
+    let randomNumber = Math.floor(Math.random() * chars.length);
+    password += chars.substring(randomNumber, randomNumber + 1);
+  }
 
-    generatePasswords();
+  document.querySelector('#password').value = password;
+}
+
+const copyPassword = () => {
+  const passwordElement = document.querySelector('#password');
+  // passwordElement.select();
+  // document.execCommand('copy');
+  // alert('Senha copiada com sucesso!');
+
+  // usando navigator.clipboard
+  navigator.clipboard.writeText(passwordElement.value).then(() => {
+    alert('Senha copiada com sucesso!');
+  }, (error) => {
+    console.error('Error copying text: ', error);
   });
-    
-  document.querySelector('#copy-password-1').addEventListener('click', copyPassword);
-  document.querySelector('#copy-password-2').addEventListener('click', copyPassword);
+}
+
+document.querySelector('#password-length').addEventListener('input', (e) => {
+  passwordLength = e.target.value;
 
   generatePasswords();
+});
+
+upperCaseCheck.addEventListener('click', generatePasswords);
+numberCheck.addEventListener('click', generatePasswords);
+symbolCheck.addEventListener('click', generatePasswords);
+
+document.querySelector('#copy-password-1').addEventListener('click', copyPassword);
+document.querySelector('#copy-password-2').addEventListener('click', copyPassword);
+
+generatePasswords();
