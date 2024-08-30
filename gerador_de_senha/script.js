@@ -50,6 +50,7 @@ const calculateStrength = () => {
     securityIndicatorBar.classList.remove('critical');
     securityIndicatorBar.classList.remove('warning');
     securityIndicatorBar.classList.add('safe');
+
   }else if(percentage > 35){
     securityIndicatorBar.classList.remove('critical');
     securityIndicatorBar.classList.add('warning');
@@ -60,6 +61,11 @@ const calculateStrength = () => {
     securityIndicatorBar.classList.remove('safe');
   }
 
+  if(percentage === 100){
+    securityIndicatorBar.classList.add('completed');
+  }else{
+    securityIndicatorBar.classList.remove('completed');
+  }
   securityIndicatorBar.style.width = `${percentage}%`;
 }
 

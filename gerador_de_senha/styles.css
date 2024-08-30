@@ -73,7 +73,7 @@ main {
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
 
-  transition: all 0.2s;
+  transition: all 0.5s;
 }
 .security-indicator .bar.completed {
   border-top-right-radius: 0;
