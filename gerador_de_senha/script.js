@@ -5,6 +5,7 @@ const numberCheck = document.querySelector("#number-check");
 const symbolCheck = document.querySelector("#symbol-check");
 
 const passwordLengthText = document.querySelector('#password-length-text');
+const passwordInput = document.querySelector('#password');
 
 const securityIndicatorBar = document.querySelector('#security-indicator-bar');
 
@@ -34,7 +35,9 @@ const generatePasswords = ()=> {
   }
 
   document.querySelector('#password').value = password;
+
   calculateStrength();
+  calculateFontSize();
 }
 
 const calculateStrength = () => {
@@ -67,6 +70,19 @@ const calculateStrength = () => {
     securityIndicatorBar.classList.remove('completed');
   }
   securityIndicatorBar.style.width = `${percentage}%`;
+}
+
+const calculateFontSize = () => {
+  if(passwordLength >= 30){
+    passwordInput.classList.remove('font-small');
+    passwordInput.classList.add('font-xsmall');
+  } else if(passwordLength > 22) {
+    passwordInput.classList.add('font-small');
+    passwordInput.classList.remove('font-xsmall');
+  } else{
+    passwordInput.classList.remove('font-small');
+    passwordInput.classList.remove('font-xsmall');
+  }
 }
 
 const copyPassword = () => {
