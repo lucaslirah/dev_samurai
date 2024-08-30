@@ -1,8 +1,10 @@
 let passwordLength = 16;
 
-let upperCaseCheck = document.querySelector("#uppercase-check");
-let numberCheck = document.querySelector("#number-check");
-let symbolCheck = document.querySelector("#symbol-check");
+const upperCaseCheck = document.querySelector("#uppercase-check");
+const numberCheck = document.querySelector("#number-check");
+const symbolCheck = document.querySelector("#symbol-check");
+
+const passwordLengthText = document.querySelector('#password-length-text');
 
 const generatePasswords = ()=> {
   let chars = "abcdefghjklmnpqrstuvwxyz";
@@ -48,7 +50,7 @@ const copyPassword = () => {
 
 document.querySelector('#password-length').addEventListener('input', (e) => {
   passwordLength = e.target.value;
-
+  passwordLengthText.textContent = passwordLength;
   generatePasswords();
 });
 
