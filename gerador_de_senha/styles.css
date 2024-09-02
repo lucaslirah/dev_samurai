@@ -53,6 +53,9 @@ main {
   -ms-user-select: none;
   user-select: none;
 }
+.password .text p{
+  font-size: 1rem;
+}
 .password .text input.font-small {
   font-size: 2.5rem;
 }

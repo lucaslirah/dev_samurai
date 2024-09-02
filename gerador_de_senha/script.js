@@ -9,6 +9,8 @@ const passwordInput = document.querySelector('#password');
 
 const securityIndicatorBar = document.querySelector('#security-indicator-bar');
 
+const copiedMessage = document.querySelector('#copied-message');
+
 const generatePasswords = ()=> {
   let chars = "abcdefghjklmnpqrstuvwxyz";
   let upperCaseChars = "ABCDEFGHJKLMNPQRSTUVWXYZ";
@@ -93,10 +95,23 @@ const copyPassword = () => {
 
   // usando navigator.clipboard
   navigator.clipboard.writeText(passwordElement.value).then(() => {
-    alert('Senha copiada com sucesso!');
+    //criar um elemento html com uma mensagem: copiado para área de transferência
+
+    if(copiedMessage.classList.contains('copied-message')){
+      copiedMessage.innerText = 'Senha já copiada!';
+      return;
+    }
+    copiedMessage.innerText = 'Senha copiada!';
+    copiedMessage.classList.add('copied-message');
+
   }, (error) => {
     console.error('Error copying text: ', error);
   });
+}
+
+const resetCopiedMessage = () => {
+  copiedMessage.innerText = '...';
+  copiedMessage.classList.remove('copied-message');
 }
 
 document.querySelector('#password-length').addEventListener('input', (e) => {
@@ -105,11 +120,24 @@ document.querySelector('#password-length').addEventListener('input', (e) => {
   generatePasswords();
 });
 
-upperCaseCheck.addEventListener('click', generatePasswords);
-numberCheck.addEventListener('click', generatePasswords);
-symbolCheck.addEventListener('click', generatePasswords);
+upperCaseCheck.addEventListener('click', ()=>{
+  resetCopiedMessage();
+  generatePasswords();
+});
+numberCheck.addEventListener('click', ()=>{
+  resetCopiedMessage();
+  generatePasswords();
+});
+symbolCheck.addEventListener('click', ()=>{
+  resetCopiedMessage();
+  generatePasswords();
+});
 
 document.querySelector('#copy-password-1').addEventListener('click', copyPassword);
 document.querySelector('#copy-password-2').addEventListener('click', copyPassword);
+document.querySelector('.renew').addEventListener('click', ()=>{
+  generatePasswords();
+  resetCopiedMessage();
+});
 
 generatePasswords();
