@@ -20,6 +20,7 @@
     <section class="box">
       <div class="password">
         <div class="text">
+          <label for="password"></label>
           <input type="text" name="password" id="password" readonly>
           <p id="copied-message">
             ...
@@ -27,10 +28,10 @@
         </div>
         <div class="actions">
           <button id="copy-password-1">
-            <img src="./img/copy.svg" width="42">
+            <img src="./img/copy.svg" width="42" alt="copy">
           </button>
           <button class="renew">
-            <img src="./img/renew.svg" width="42">
+            <img src="./img/renew.svg" width="42" alt="renew">
           </button>
         </div>
       </div>
@@ -44,6 +45,7 @@
       <div class="actions">
         <div class="password-length">
           <p>Tamanho: <span id="password-length-text">8</span></p>
+          <label for="password-length"></label>
           <input type="range" name="password-length" id="password-length" value="8" min="8" max="30" class="slider">
         </div>
         
