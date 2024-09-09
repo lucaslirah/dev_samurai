@@ -1,16 +1,55 @@
 (() => {
-    const todo = {
-        description: 'todo',
-        done: false
+    interface Task {
+        id: string;
+        dateCreated: Date;
+        dateUpdated: Date;
+        description: string;
+        render(): string;
     }
 
-    const reminder = {
-        description: 'reminder',
-        date: '2024-09-09'
+    class Reminder implements Task {
+        dateCreated: Date = new Date();
+        dateUpdated: Date = new Date();
+        description: string = '';
+        id: string = '';
+
+        date: Date = new Date();
+        notifications: Array<string> = ['EMAIL'];
+
+        constructor(description: string, date: Date, notifications: Array<string>) {
+            this.description = description;
+            this.date = date;
+            this.notifications = notifications;
+        }
+
+        render(): string {
+            return JSON.stringify(this);
+        }
     }
+
+    class Todo implements Task {
+        dateCreated: Date = new Date();
+        dateUpdated: Date = new Date();
+        description: string = '';
+        id: string = '';
+
+        done: boolean = false;
+
+        constructor(description: string) {
+            this.description = description;
+        }
+
+        render(): string {
+            return JSON.stringify(this);
+        }
+    }
+
+    const todo = new Todo('Todo criado com sucesso!');
+
+    const reminder = new Reminder('Reminder criado com sucesso!', new Date(), ['EMAIL'])
 
     const taskView ={
-        render(tasks: Array<object>){
+        render(tasks: Array<Task>){
             const tasksList = document.getElementById('tasksList');
 
             while(tasksList?.firstChild){
@@ -26,7 +65,7 @@
     }
 
     const TaskController = (view: typeof taskView) => {
-        const tasks: Array<object> = [todo, reminder];
+        const tasks: Array<Task> = [todo, reminder];
 
         const handleEvent = (event: Event) => {
             event.preventDefault();
