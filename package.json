@@ -1,0 +1,14 @@
+{
+  "name": "devsamurai",
+  "version": "1.0.0",
+  "description": "projeto de typescript",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx tsc -w"
+  },
+  "author": "Lucas Lira",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^5.5.4"
+  }
+}
